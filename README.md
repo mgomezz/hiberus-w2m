@@ -1,4 +1,4 @@
-# HiberusW2m
+# HiberusW2M
 Repositorio que contiene prueba técnica FrontEnd para Hiberus - Cliente W2M
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
