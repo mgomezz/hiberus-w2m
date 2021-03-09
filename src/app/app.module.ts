@@ -11,6 +11,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -23,12 +26,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    FlexLayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
