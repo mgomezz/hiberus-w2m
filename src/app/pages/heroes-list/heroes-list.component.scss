@@ -2,6 +2,19 @@ table {
   width: 100%;
 }
 
-.heroes-table-container {
+.heroes-list-container {
   margin: 20px;
+}
+
+.heroes-table-container {
+  margin-top: 20px;
+}
+
+.search-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-content-container {
+  margin-left: 16px;
 }
