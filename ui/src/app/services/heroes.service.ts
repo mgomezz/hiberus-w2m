@@ -19,7 +19,9 @@ export class HeroesService {
     return this.http.get<Hero>(`${this.apiURL}/hero/${id}`);
   }
 
-  addHero() {}
+  addHero(hero: Hero) {
+    return this.http.post(`${this.apiURL}/hero`, {hero});
+  }
 
   editHero(id: number) {}
 
