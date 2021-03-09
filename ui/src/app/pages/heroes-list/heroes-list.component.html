@@ -1,5 +1,4 @@
 <div class="heroes-list-container">
-
     <mat-card>
         <mat-card-header>
             <mat-card-title class="search-title-container">
@@ -16,7 +15,7 @@
     </mat-card>
 
     <div fxLayour="row" class="add-btn-container">
-        <div fxFlex="100" fxLayoutAlign="end start">
+        <div fxFlex="100">
             <button [routerLink]="['/add-hero']" mat-raised-button color="primary">Add new hero<mat-icon
                     class="btn-icon">
                     add_circle
@@ -70,6 +69,7 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
 
         </table>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
