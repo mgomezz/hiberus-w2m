@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { HeroesListComponent } from './pages/heroes-list/heroes-list.component';
-import { HeroFormComponent } from './pages/heroe-form/heroe-form.component';
+import { HeroFormComponent } from './pages/hero-form/hero-form.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,8 +16,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
+import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,13 +32,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeroesListComponent,
     HeroFormComponent,
     NavComponent,
+    SpinnerOverlayComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     //TODO: pasar material a otro modulo
+    MatButtonModule,
     MatSliderModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -41,8 +52,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

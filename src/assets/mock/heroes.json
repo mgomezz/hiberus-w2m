@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Superman",
+    "description": "He can´t touch criptonite",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 2,
+    "name": "Spiderman",
+    "description": "It's like a spider",
+    "superPower": "Sixt senth"
+  },
+  {
+    "id": 3,
+    "name": "Aquaman",
+    "description": "A man in the sea",
+    "superPower": "Speak with sea animals"
+  },
+  {
+    "id": 4,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 5,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 6,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 7,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 8,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 9,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 10,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 11,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  },
+  {
+    "id": 12,
+    "name": "Superman",
+    "description": "The best hero",
+    "superPower": "Laser vision"
+  }
+]

@@ -1,0 +1,63 @@
+<div fxLayout="row" class="back-btn-container">
+    <button mat-raised-button color="primary" matTooltip="Go Back">
+        <mat-icon>
+            arrow_back
+        </mat-icon>
+    </button>
+</div>
+<div fxLayout="row" class="form-container">
+    <div fxFlex="50">
+        <form [formGroup]="heroForm" autocomplete="off">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Create new Hero
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input matInput type="text" formControlName="name">
+                            <mat-error *ngIf="!heroForm.controls['name'].valid && heroForm.controls['name'].touched">
+                                Please enter a hero name
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <input matInput type="text" formControlName="description">
+                            <mat-error
+                                *ngIf="!heroForm.controls['description'].valid && heroForm.controls['description'].touched">
+                                Please enter a hero description
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Special Power</mat-label>
+                            <input matInput type="text" formControlName="superPower">
+                            <mat-error
+                                *ngIf="!heroForm.controls['superPower'].valid && heroForm.controls['superPower'].touched">
+                                Please enter a hero super power
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row" class="btn-submit-container">
+                        <button type="submit" class="btn-submit" [disabled]="!heroForm.valid" mat-raised-button
+                            color="primary" (click)="save()">Save
+                            <mat-icon class="btn-icon">
+                                save
+                            </mat-icon>
+                        </button>
+
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </form>
+    </div>
+
+</div>
