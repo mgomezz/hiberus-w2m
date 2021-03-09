@@ -9,7 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { SpinnerService } from '../services/spinner.service';
 
-import { tap, map, filter } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class SpinnerInterceptor implements HttpInterceptor {

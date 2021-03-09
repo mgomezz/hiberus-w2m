@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-hero-form',
@@ -19,10 +15,13 @@ export class HeroFormComponent implements OnInit {
     superPower: new FormControl(null, Validators.required),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private location: Location) {}
 
   ngOnInit(): void {}
 
+  public goBack() {
+    this.location.back();
+  }
   public save(): void {
     this.router.navigate(['heroes'], { replaceUrl: true });
   }
