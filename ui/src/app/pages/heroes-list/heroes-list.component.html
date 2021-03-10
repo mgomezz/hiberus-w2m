@@ -13,8 +13,8 @@
                 <mat-icon matPrefix>search</mat-icon>
                 <input #searchInput matInput type="text" placeholder="Hero Name"
                     (input)="onSearchHero(searchInput.value)" />
-                <button mat-icon-button matSuffix (click)="clearInput(searchInput)">
-                    <mat-icon>{{searchInput.value.length>0 ? 'clear' : ''}}</mat-icon>
+                <button *ngIf="searchInput.value" mat-icon-button matSuffix (click)="clearInput(searchInput)">
+                    <mat-icon>clear</mat-icon>
                 </button>
             </mat-form-field>
 

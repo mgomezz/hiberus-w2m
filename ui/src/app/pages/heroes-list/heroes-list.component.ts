@@ -16,7 +16,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
   styleUrls: ['./heroes-list.component.scss'],
 })
 export class HeroesListComponent implements OnInit, AfterViewInit {
-  private searchTerms = new Subject<string>();
+  searchTerms = new Subject<string>();
 
   loading: boolean = true;
   emptyDataMessage: string = 'No heroes to show!';
