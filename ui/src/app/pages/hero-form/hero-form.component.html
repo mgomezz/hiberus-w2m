@@ -19,7 +19,8 @@
                     <div fxLayout="row">
                         <mat-form-field appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input matInput type="text" formControlName="name">
+                            <input matInput type="text" formControlName="name"
+                                oninput="this.value = this.value.toUpperCase()">
                             <mat-error *ngIf="!heroForm.controls['name'].valid && heroForm.controls['name'].touched">
                                 Please enter a hero name
                             </mat-error>

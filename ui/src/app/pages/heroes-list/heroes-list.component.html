@@ -7,14 +7,17 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content class="search-content-container">
-            <form>
-                <mat-form-field appearance="outline">
-                    <mat-label>Hero Name</mat-label>
-                    <mat-icon matPrefix>search</mat-icon>
-                    <input #searchInput matInput type="text" placeholder="Hero Name"
-                        (input)="onSearchHero(searchInput.value)" />
-                </mat-form-field>
-            </form>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Hero Name</mat-label>
+                <mat-icon matPrefix>search</mat-icon>
+                <input #searchInput matInput type="text" placeholder="Hero Name"
+                    (input)="onSearchHero(searchInput.value)" />
+                <button mat-icon-button matSuffix (click)="clearInput(searchInput)">
+                    <mat-icon>{{searchInput.value.length>0 ? 'clear' : ''}}</mat-icon>
+                </button>
+            </mat-form-field>
+
         </mat-card-content>
     </mat-card>
 

@@ -27,9 +27,9 @@ app.get("/api/hero/:id", (req, res) => {
 
 //GET HEROES BY PART OF THE NAME
 app.get("/api/heroes/:partialName", (req, res) => {
-  const partialName = req.params.partialName;
+  const partialName = req.params.partialName.toLowerCase();
   const matchedHeroes = heroes.filter((hero) =>
-    hero.name.includes(partialName)
+    hero.name.toLowerCase().includes(partialName)
   );
   res.json(matchedHeroes);
 });

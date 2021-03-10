@@ -19,7 +19,7 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
   private searchTerms = new Subject<string>();
 
   loading: boolean = true;
-  emptyDataMessage: string = 'No heroes to show! Add a new one!';
+  emptyDataMessage: string = 'No heroes to show!';
 
   displayedColumns: string[] = [
     'id',
@@ -50,7 +50,7 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
   initializeSearch() {
     this.searchTerms
       .pipe(
-        debounceTime(500),
+        debounceTime(400),
         distinctUntilChanged(),
         switchMap((term: string) =>
           this.heroesService.searcHeroesByPartialName(term)
@@ -61,13 +61,17 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
       });
   }
 
+  clearInput(searchInput: any) {
+    searchInput.value = '';
+    this.onSearchHero(searchInput.value);
+  }
+
   onSearchHero(value: string) {
     if (value.length === 0) {
       this.getAllHeroes();
-      return;
+    } else {
+      this.searchTerms.next(value);
     }
-
-    this.searchTerms.next(value);
   }
 
   getAllHeroes() {
