@@ -63,7 +63,7 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
 
   clearInput(searchInput: any) {
     searchInput.value = '';
-    this.onSearchHero(searchInput.value);
+    this.getAllHeroes();
   }
 
   onSearchHero(value: string) {
