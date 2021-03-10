@@ -18,13 +18,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
-import { NavComponent } from './shared/nav/nav.component';
-import { SpinnerOverlayComponent } from './shared/spinner-overlay/spinner-overlay.component';
+import { NavComponent } from './components/nav/nav.component';
+import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
+import { DeleteConfirmDialogComponent } from './pages/heroes-list/delete-confirm-dialog/delete-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { SpinnerOverlayComponent } from './shared/spinner-overlay/spinner-overla
     HeroFormComponent,
     NavComponent,
     SpinnerOverlayComponent,
+    DeleteConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { SpinnerOverlayComponent } from './shared/spinner-overlay/spinner-overla
     MatCardModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },

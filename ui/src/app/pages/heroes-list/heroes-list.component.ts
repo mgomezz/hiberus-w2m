@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ApiResponse } from 'src/app/models/api-response.model';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
 
 @Component({
   selector: 'app-heroes-list',
@@ -28,7 +30,10 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor(private heroesService: HeroesService) {}
+  constructor(
+    private heroesService: HeroesService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.heroesService.getHeroes().subscribe(
@@ -38,7 +43,6 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
       },
       (error: HttpErrorResponse) => {
         this.loading = false;
-
         this.emptyDataMessage =
           'A problem happened when fetching the heroes from the server. Try to refresh the page';
       }
@@ -50,15 +54,21 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
   }
 
   public deleteHero(heroId: string) {
-    this.heroesService.deleteHero(heroId).subscribe(
-      (response: ApiResponse) => {
-        this.dataSource.data = this.dataSource.data.filter(
-          (hero) => hero.id !== heroId
+    const dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
+
+    dialogRef.beforeClosed().subscribe((result) => {
+      if (result) {
+        this.heroesService.deleteHero(heroId).subscribe(
+          (response: ApiResponse) => {
+            this.dataSource.data = this.dataSource.data.filter(
+              (hero) => hero.id !== heroId
+            );
+          },
+          (error: HttpErrorResponse) => {
+            console.log(error.message);
+          }
         );
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
       }
-    );
+    });
   }
 }

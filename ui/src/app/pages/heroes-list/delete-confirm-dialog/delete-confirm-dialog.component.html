@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete Hero</h1>
+<div mat-dialog-content>
+    <p>Are you sure you want to delete the selected Hero?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">NO</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>YES</button>
+</div>
