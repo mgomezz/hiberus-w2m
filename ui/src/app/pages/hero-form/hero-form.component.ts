@@ -40,7 +40,7 @@ export class HeroFormComponent implements OnInit {
         this.heroForm.patchValue(hero);
       },
       (error: HttpErrorResponse) => {
-        //TODO: implementar alerta para que el usuario se entere
+        //TODO: implementar alertas para que el usuario se entere
         console.log(error.message);
       }
     );

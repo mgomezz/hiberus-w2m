@@ -7,5 +7,6 @@ import { SpinnerService } from './services/spinner.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'hiberus-w2m';
   constructor(public spinnerService: SpinnerService) {}
 }
