@@ -59,7 +59,8 @@
                             create
                         </mat-icon>
                     </button>
-                    <button class="action-btn" matTooltip="Delete" mat-mini-fab color="warn">
+                    <button class="action-btn" matTooltip="Delete" mat-mini-fab color="warn"
+                        (click)="deleteHero(element.id)">
                         <mat-icon>
                             delete
                         </mat-icon>
@@ -71,7 +72,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
             <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" [attr.colspan]="displayedColumns.length">No heroes to show! Add a new one!</td>
+                <td class="mat-cell" [attr.colspan]="displayedColumns.length">{{emptyDataMessage}}</td>
             </tr>
         </table>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

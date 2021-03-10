@@ -7,8 +7,7 @@ bodyParser = require("body-parser");
 port = 3080;
 
 const idlen = 10;
-const heroes = [];
-let tasks = [];
+var heroes = [];
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../ui/build")));
@@ -16,6 +15,12 @@ app.use(express.static(path.join(__dirname, "../ui/build")));
 app.get("/api/heroes", (req, res) => {
   console.log("api/heroes called!");
   res.json(heroes);
+});
+
+app.get("/api/hero/:id", (req, res) => {
+  const id = req.params.id;
+  const hero = heroes.find((hero) => hero.id === id);
+  res.json(hero);
 });
 
 app.post("/api/hero", (req, res) => {
@@ -34,7 +39,7 @@ app.delete("/api/hero/:id", (req, res) => {
 });
 
 app.put("/api/hero", (req, res) => {
-  const hero = req.body.task;
+  var hero = req.body.hero;
   heroes = heroes.map((hro) => {
     if (hro.id === hero.id) hro = hero;
     return hro;

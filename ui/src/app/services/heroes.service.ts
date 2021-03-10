@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ApiResponse } from '../models/api-response.model';
 import { Hero } from '../models/hero.model';
 
 @Injectable({
@@ -11,19 +13,23 @@ export class HeroesService {
 
   constructor(private http: HttpClient) {}
 
-  getHeroes() {
+  getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${this.apiURL}/heroes`);
   }
 
-  getHero(id: number) {
+  getHero(id: string): Observable<Hero> {
     return this.http.get<Hero>(`${this.apiURL}/hero/${id}`);
   }
 
-  addHero(hero: Hero) {
-    return this.http.post(`${this.apiURL}/hero`, {hero});
+  addHero(hero: Hero): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.apiURL}/hero`, { hero });
   }
 
-  editHero(id: number) {}
+  editHero(hero: Hero): Observable<ApiResponse> {
+    return this.http.put<ApiResponse>(`${this.apiURL}/hero`, { hero });
+  }
 
-  deleteHero(id: number) {}
+  deleteHero(heroId: string): Observable<ApiResponse> {
+    return this.http.delete<ApiResponse>(`${this.apiURL}/hero/${heroId}`);
+  }
 }
