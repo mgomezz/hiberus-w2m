@@ -12,7 +12,8 @@ import { ApiResponse } from 'src/app/models/api-response.model';
   styleUrls: ['./heroes-list.component.scss'],
 })
 export class HeroesListComponent implements OnInit, AfterViewInit {
-  emptyDataMessage: string = 'Loading heroes...';
+  loading: boolean = true;
+  emptyDataMessage: string = 'No heroes to show! Add a new one!';
 
   displayedColumns: string[] = [
     'id',
@@ -32,16 +33,14 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.heroesService.getHeroes().subscribe(
       (heroes: Hero[]) => {
-        if (heroes.length == 0) {
-          this.emptyDataMessage = 'No heroes to show! Add a new one!';
-        }
-
         this.dataSource.data = heroes;
+        this.loading = false;
       },
       (error: HttpErrorResponse) => {
-        //TODO: implementar alerta para que el usuario se entere
+        this.loading = false;
+
         this.emptyDataMessage =
-          'A problem happens when fetching heroes from the server. Try to refresh the page';
+          'A problem happened when fetching the heroes from the server. Try to refresh the page';
       }
     );
   }
@@ -52,8 +51,14 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
 
   public deleteHero(heroId: string) {
     this.heroesService.deleteHero(heroId).subscribe(
-      (response: ApiResponse) => {},
-      (error: HttpErrorResponse) => {}
+      (response: ApiResponse) => {
+        this.dataSource.data = this.dataSource.data.filter(
+          (hero) => hero.id !== heroId
+        );
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+      }
     );
   }
 }
