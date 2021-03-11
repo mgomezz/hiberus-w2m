@@ -89,24 +89,10 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
     );
   }
 
-  searchHeroesByPartialName(partialName: string) {
-    this.heroesService.searcHeroesByPartialName(partialName).subscribe(
-      (heroes: Hero[]) => {
-        this.dataSource.data = heroes;
-        this.loading = false;
-      },
-      (error: HttpErrorResponse) => {
-        this.loading = false;
-        this.emptyDataMessage =
-          'A problem happened when fetching the heroes from the server. Try to refresh the page';
-      }
-    );
-  }
-
   deleteHero(heroId: string) {
     const dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
 
-    dialogRef.beforeClosed().subscribe((result) => {
+    dialogRef.beforeClosed().subscribe((result: boolean) => {
       if (result) {
         this.heroesService.deleteHero(heroId).subscribe(
           (response: ApiResponse) => {
