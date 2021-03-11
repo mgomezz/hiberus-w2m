@@ -9,5 +9,5 @@ Para correr la API:
 # UI
 Para correr la UI:
  1) Posicionarse en la carpeta "ui" y ejecutar el comando npm install. 
- 2) Ejecutar el comando ng serve -o. Nos levantará la web y abrirá automaticamente el navegador.
+ 2) Ejecutar el comando npm start. Nos levantará la web en http://localhost:4200.
 
