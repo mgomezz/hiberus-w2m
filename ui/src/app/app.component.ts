@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SpinnerService } from './services/spinner.service';
+import { SpinnerService } from './services/spinner/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,5 @@ import { SpinnerService } from './services/spinner.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'hiberus-w2m';
   constructor(public spinnerService: SpinnerService) {}
 }

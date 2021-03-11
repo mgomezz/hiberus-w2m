@@ -7,9 +7,9 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SpinnerService } from '../services/spinner.service';
 
-import { tap } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
+import { SpinnerService } from '../services/spinner/spinner.service';
 
 @Injectable()
 export class SpinnerInterceptor implements HttpInterceptor {
@@ -20,17 +20,9 @@ export class SpinnerInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     this.spinnerService.show();
-    return next.handle(request).pipe(
-      tap(
-        (event: HttpEvent<any>) => {
-          if (event instanceof HttpResponse) {
-            this.spinnerService.hide();
-          }
-        },
-        (error) => {
-          this.spinnerService.hide();
-        }
-      )
-    );
+
+    return next
+      .handle(request)
+      .pipe(finalize(() => this.spinnerService.hide()));
   }
 }

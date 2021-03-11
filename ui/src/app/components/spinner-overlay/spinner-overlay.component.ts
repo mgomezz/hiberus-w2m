@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { Subject } from 'rxjs';
+import { SpinnerService } from 'src/app/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-spinner-overlay',
@@ -14,7 +16,7 @@ export class SpinnerOverlayComponent implements OnInit {
   @Input() overlay: boolean = false;
   @Input() color: string = 'primary';
 
-  constructor() {}
+  constructor(private spinnerService: SpinnerService) {}
 
   ngOnInit(): void {}
 }

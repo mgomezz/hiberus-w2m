@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { ApiResponse } from 'src/app/models/api-response.model';
+import { Hero } from 'src/app/models/hero.model';
 import { environment } from 'src/environments/environment';
-import { ApiResponse } from '../models/api-response.model';
-import { Hero } from '../models/hero.model';
 
 @Injectable({
   providedIn: 'root',

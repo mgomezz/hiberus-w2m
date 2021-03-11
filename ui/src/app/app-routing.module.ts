@@ -1,12 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroFormComponent } from './pages/hero-form/hero-form.component';
 import { HeroesListComponent } from './pages/heroes-list/heroes-list.component';
 
 const routes: Routes = [
-  { path: 'heroes', component: HeroesListComponent },
-  { path: 'add-hero', component: HeroFormComponent },
-  { path: 'edit-hero/:id', component: HeroFormComponent },
+  {
+    path: 'heroes',
+    loadChildren: () =>
+      import(`./pages/heroes-list/heroes-list.module`).then(
+        (m) => m.HeroesListModule
+      ),
+  },
+  {
+    path: 'add-hero',
+    loadChildren: () =>
+      import(`./pages/add-hero/add-hero.module`).then((m) => m.AddHeroModule),
+  },
+  {
+    path: 'edit-hero/:id',
+    loadChildren: () =>
+      import(`./pages/edit-hero/edit-hero.module`).then(
+        (m) => m.EditHeroModule
+      ),
+  },
   { path: '', redirectTo: 'heroes', pathMatch: 'full' },
   { path: '**', component: HeroesListComponent }, //TODO: Implementar not found page
 ];
