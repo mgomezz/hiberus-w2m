@@ -1,17 +1,12 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero.model';
 import { Location } from '@angular/common';
 import { HeroesService } from 'src/app/services/heroes/heroes.service';
 import { ApiResponse } from 'src/app/models/api-response.model';
+import { MessageNotificationService } from 'src/app/services/message-notification/message-notification.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-hero',
@@ -24,10 +19,10 @@ export class AddHeroComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-    private heroesService: HeroesService
+    private heroesService: HeroesService,
+    private messageNotificationService: MessageNotificationService
   ) {}
 
   ngOnInit(): void {
@@ -55,10 +50,13 @@ export class AddHeroComponent implements OnInit {
     };
 
     this.heroesService.addHero(hero).subscribe(
-      (res: ApiResponse) => {
+      (response: ApiResponse) => {
+        this.messageNotificationService.notifySuccess(response.message);
         this.router.navigate(['heroes'], { replaceUrl: true });
       },
-      (error) => {}
+      (error: HttpErrorResponse) => {
+        this.messageNotificationService.notifyError(error.message);
+      }
     );
   }
 }

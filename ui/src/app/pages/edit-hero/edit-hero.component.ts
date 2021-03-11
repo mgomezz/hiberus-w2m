@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero.model';
 import { HeroesService } from 'src/app/services/heroes/heroes.service';
+import { MessageNotificationService } from 'src/app/services/message-notification/message-notification.service';
+import { ApiResponse } from 'src/app/models/api-response.model';
 
 @Component({
   selector: 'app-edit-hero',
@@ -20,7 +22,8 @@ export class EditHeroComponent implements OnInit {
     private router: Router,
     private location: Location,
     private formBuilder: FormBuilder,
-    private heroesService: HeroesService
+    private heroesService: HeroesService,
+    private messageNotificationService: MessageNotificationService
   ) {}
 
   ngOnInit(): void {
@@ -35,8 +38,7 @@ export class EditHeroComponent implements OnInit {
         this.heroForm.patchValue(hero);
       },
       (error: HttpErrorResponse) => {
-        //TODO: implementar alertas para que el usuario se entere
-        console.log(error.message);
+        this.messageNotificationService.notifyError(error.message);
       }
     );
   }
@@ -62,10 +64,13 @@ export class EditHeroComponent implements OnInit {
     };
 
     this.heroesService.editHero(hero).subscribe(
-      (res) => {
+      (response: ApiResponse) => {
+        this.messageNotificationService.notifySuccess(response.message);
         this.router.navigate(['heroes'], { replaceUrl: true });
       },
-      (error) => {}
+      (error: HttpErrorResponse) => {
+        this.messageNotificationService.notifyError(error.message);
+      }
     );
   }
 }

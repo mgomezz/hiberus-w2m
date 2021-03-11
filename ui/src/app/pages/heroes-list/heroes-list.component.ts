@@ -9,6 +9,7 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-con
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { HeroesService } from 'src/app/services/heroes/heroes.service';
+import { MessageNotificationService } from 'src/app/services/message-notification/message-notification.service';
 
 @Component({
   selector: 'app-heroes-list',
@@ -35,6 +36,7 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
 
   constructor(
     private heroesService: HeroesService,
+    private messageNotificationService: MessageNotificationService,
     private dialog: MatDialog
   ) {}
 
@@ -82,9 +84,9 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
       },
       (error: HttpErrorResponse) => {
         this.loading = false;
-        //TODO: manejar los errores desde una sola clase
-        this.emptyDataMessage =
-          'A problem happened when fetching the heroes from the server. Try to refresh the page';
+        //TODO: manejar errores desde una sola clase para mostrar mensajes mas amigables para el usuario
+        this.emptyDataMessage = error.message;
+        this.messageNotificationService.notifyError(error.message);
       }
     );
   }
@@ -97,9 +99,10 @@ export class HeroesListComponent implements OnInit, AfterViewInit {
         this.heroesService.deleteHero(heroId).subscribe(
           (response: ApiResponse) => {
             this.dataSource.data = response.data;
+            this.messageNotificationService.notifySuccess(response.message);
           },
           (error: HttpErrorResponse) => {
-            console.log(error.message);
+            this.messageNotificationService.notifyError(error.message);
           }
         );
       }

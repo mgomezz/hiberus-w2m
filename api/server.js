@@ -40,7 +40,7 @@ app.post("/api/hero", (req, res) => {
   const id = randomId(idlen);
   hero.id = id;
   heroes.push(hero);
-  res.json({ status: true, message: `hero ${hero.id} addedd` });
+  res.json({ status: true, message: `Hero ${hero.name} added succesfully` });
 });
 
 //DELETE HERO
@@ -48,7 +48,11 @@ app.delete("/api/hero/:id", (req, res) => {
   console.log("deleting hero:::", req.params.id);
   const id = req.params.id;
   heroes = heroes.filter((hero) => hero.id !== id);
-  res.json({ status: true, message: `hero ${id} deleted`, data: heroes });
+  res.json({
+    status: true,
+    message: `Hero ${id} deleted succesfully`,
+    data: heroes,
+  });
 });
 
 //UPDATE HERO
@@ -58,7 +62,7 @@ app.put("/api/hero", (req, res) => {
     if (hro.id === hero.id) hro = hero;
     return hro;
   });
-  res.json({ status: true, message: `hero ${hero.id} edited` });
+  res.json({ status: true, message: `Hero ${hero.name} edited succesfully` });
 });
 
 //SERVER UP NOTIFICATION

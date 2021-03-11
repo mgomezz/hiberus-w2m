@@ -20,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SpinnerService } from './services/spinner/spinner.service';
 import { HeroesService } from './services/heroes/heroes.service';
+import { MessageNotificationService } from './services/message-notification/message-notification.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, NavComponent, SpinnerOverlayComponent],
@@ -38,8 +40,10 @@ import { HeroesService } from './services/heroes/heroes.service';
     MatInputModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
   providers: [
+    MessageNotificationService,
     SpinnerService,
     HeroesService,
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
