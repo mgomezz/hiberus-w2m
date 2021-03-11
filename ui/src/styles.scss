@@ -10,11 +10,19 @@ body {
 }
 
 .snackbar-danger {
+  margin: 0 !important;
+  position: absolute;
+  right: 20px;
+  top: 80px;
   color: rgb(255, 255, 255);
   background-color: rgba(202, 3, 3, 0.816);
 }
 
 .snackbar-success {
+  margin: 0 !important;
+  position: absolute;
+  right: 20px;
+  top: 80px;
   color: rgb(255, 255, 255);
   background-color: rgba(2, 119, 2, 0.727);
 }

@@ -7,7 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class MessageNotificationService {
   duration = 5000;
-  action = 'OK';
+  action = 'X';
   constructor(private snackBar: MatSnackBar) {}
 
   notifySuccess(message: string): void {
