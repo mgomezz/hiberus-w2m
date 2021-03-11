@@ -34,7 +34,7 @@ export class AddHeroComponent implements OnInit {
     this.initializeHeroForm();
   }
 
-  initializeHeroForm(): void {
+  private initializeHeroForm(): void {
     this.heroForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -49,9 +49,9 @@ export class AddHeroComponent implements OnInit {
   save(): void {
     let hero: Hero = {
       id: '',
-      name: this.form.name.value,
-      description: this.form.description.value,
-      superPower: this.form.superPower.value,
+      name: this.heroForm.get('name')?.value,
+      description: this.heroForm.get('description')?.value,
+      superPower: this.heroForm.get('superPower')?.value,
     };
 
     this.heroesService.addHero(hero).subscribe(
@@ -60,9 +60,5 @@ export class AddHeroComponent implements OnInit {
       },
       (error) => {}
     );
-  }
-
-  private get form(): { [key: string]: AbstractControl } {
-    return this.heroForm.controls;
   }
 }

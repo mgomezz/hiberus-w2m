@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero.model';
@@ -12,27 +12,25 @@ import { HeroesService } from 'src/app/services/heroes/heroes.service';
   styleUrls: ['./edit-hero.component.scss'],
 })
 export class EditHeroComponent implements OnInit {
-  id!: string;
-  formTitle: string = '';
-  heroForm: FormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required]),
-    description: new FormControl(null, Validators.required),
-    superPower: new FormControl(null, Validators.required),
-  });
+  heroId: string = '';
+  heroForm: FormGroup = new FormGroup({});
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
+    private formBuilder: FormBuilder,
     private heroesService: HeroesService
   ) {}
+
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    if (!this.id) {
-      this.formTitle = 'Create new Hero';
-      return;
-    }
-    this.formTitle = 'Edit hero';
-    this.heroesService.getHero(this.id).subscribe(
+    this.heroId = this.route.snapshot.params['id'];
+    this.initializetHeroForm();
+    this.getHero();
+  }
+
+  private getHero(): void {
+    this.heroesService.getHero(this.heroId).subscribe(
       (hero: Hero) => {
         this.heroForm.patchValue(hero);
       },
@@ -42,26 +40,28 @@ export class EditHeroComponent implements OnInit {
       }
     );
   }
-  public goBack() {
+
+  private initializetHeroForm(): void {
+    this.heroForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      superPower: ['', [Validators.required]],
+    });
+  }
+
+  goBack() {
     this.location.back();
   }
-  public save(): void {
+
+  save(): void {
     let hero: Hero = {
-      id: this.id ? this.id : '',
+      id: this.heroId,
       name: this.heroForm.get('name')?.value,
       description: this.heroForm.get('description')?.value,
       superPower: this.heroForm.get('superPower')?.value,
     };
-    if (this.id) {
-      this.heroesService.editHero(hero).subscribe(
-        (res) => {
-          this.router.navigate(['heroes'], { replaceUrl: true });
-        },
-        (error) => {}
-      );
-      return;
-    }
-    this.heroesService.addHero(hero).subscribe(
+
+    this.heroesService.editHero(hero).subscribe(
       (res) => {
         this.router.navigate(['heroes'], { replaceUrl: true });
       },
