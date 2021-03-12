@@ -1,7 +1,7 @@
 # Hiberus-W2M
 
 # Run with Docker
-  1. cd hiberus-w22
+  1. cd hiberus-w2m
   2. docker-compose up
   3. Server will launch in http://localhost:3080 and UI in http://localhost:4200
 
