@@ -22,6 +22,6 @@ Open cmd and run the following commands:
   2. npm install
   3. npm start
 
-# RUN unit tests in UI
+# Run unit tests in UI
 Go to hiberus-w2m/ui folder and execute the following command:
 1. npm run test
