@@ -28,7 +28,7 @@ export class AddHeroComponent implements OnInit {
     this.initializeHeroForm();
   }
 
-  private initializeHeroForm(): void {
+  initializeHeroForm(): void {
     this.heroForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],

@@ -150,4 +150,6 @@ describe('HeroesService', () => {
 
     httpTestingController.verify();
   });
+
+  //TODO: agregar test para add hero
 });

@@ -32,7 +32,7 @@ export class EditHeroComponent implements OnInit {
     this.getHero();
   }
 
-  private getHero(): void {
+  getHero(): void {
     this.heroesService.getHero(this.heroId).subscribe(
       (hero: Hero) => {
         this.heroForm.patchValue(hero);
@@ -43,7 +43,7 @@ export class EditHeroComponent implements OnInit {
     );
   }
 
-  private initializetHeroForm(): void {
+  initializetHeroForm(): void {
     this.heroForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],

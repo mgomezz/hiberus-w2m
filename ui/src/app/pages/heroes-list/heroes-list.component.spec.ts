@@ -3,11 +3,10 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs/internal/observable/of';
-import { ApiResponse } from 'src/app/models/api-response.model';
 import { Hero } from 'src/app/models/hero.model';
 import { HeroesService } from 'src/app/services/heroes/heroes.service';
 import { environment } from 'src/environments/environment';
@@ -34,9 +33,6 @@ describe('HeroesListComponent', () => {
 
     httpTestingController = TestBed.inject(HttpTestingController);
     heroesService = TestBed.inject(HeroesService);
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(HeroesListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
