@@ -127,6 +127,35 @@ describe('HeroesService', () => {
     httpTestingController.verify();
   });
 
+  it('should create hero', () => {
+    const mockHero: Hero = {
+      id: 'sdasdasdasd',
+      name: 'SPIDERMAN',
+      description: 'Spiderman description',
+      superPower: 'Spiderman superpower',
+    };
+
+    const mockApiResponse: ApiResponse = {
+      status: true,
+      message: `Hero ${mockHero.id} added succesfully`,
+      data: [{}],
+    };
+
+    service.addHero(mockHero).subscribe((apiResponse: ApiResponse) => {
+      expect(apiResponse).toEqual(mockApiResponse);
+    });
+
+    const request = httpTestingController.expectOne(
+      `${environment.apiUrl}/hero`
+    );
+
+    expect(request.request.method).toBe('POST');
+
+    request.flush(mockApiResponse);
+
+    httpTestingController.verify();
+  });
+
   it('should delete a hero by id', () => {
     const id = 'dasdasdasd';
 
