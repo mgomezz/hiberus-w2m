@@ -14,7 +14,6 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./add-hero.component.scss'],
 })
 export class AddHeroComponent implements OnInit {
-  formTitle: string = '';
   heroForm: FormGroup = new FormGroup({});
 
   constructor(
