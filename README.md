@@ -1,28 +1,19 @@
 # Hiberus-W2M
 
 # Run with Docker
-  1)cd hiberus-w2m
-  2)
-  3)docker-compose up
-  4)
-  5)Server will launch in http://localhost:3080 and UI in http://localhost:4200
+  1. cd hiberus-w22
+  2. docker-compose up
+  3. Server will launch in http://localhost:3080 and UI in http://localhost:4200
 
 # Run Without Docker Compose
 
 # API
-  1)cd api
-  2)
-  3)npm install
-  4)
-  5)npm run dev
-  6)
-  7)the server will launch in http://localhost:3080
+  1. cd api
+  2. npm install
+  3. npm run dev
+  4. the server will launch in http://localhost:3080
 
 # UI
-  1)cd ui
-  2)
-  3)npm install
-  4)
-  5)npm start
-  6)
-
+  1 .cd ui
+  2. npm install
+  3. npm start
