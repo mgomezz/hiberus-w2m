@@ -8,21 +8,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MessageNotificationService } from './message-notification.service';
 
 describe('MessageNotificationService', () => {
-  let httpTestingController: HttpTestingController;
   let service: MessageNotificationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MessageNotificationService],
-      imports: [HttpClientTestingModule, MatSnackBarModule],
+      imports: [MatSnackBarModule],
     });
 
-    httpTestingController = TestBed.inject(HttpTestingController);
     service = TestBed.inject(MessageNotificationService);
-  });
-
-  afterEach(() => {
-    httpTestingController.verify();
   });
 
   it('should be created', () => {
