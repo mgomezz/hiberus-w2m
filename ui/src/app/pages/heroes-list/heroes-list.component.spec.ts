@@ -5,7 +5,9 @@ import {
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs/internal/observable/of';
+import { ApiResponse } from 'src/app/models/api-response.model';
 import { Hero } from 'src/app/models/hero.model';
 import { HeroesService } from 'src/app/services/heroes/heroes.service';
 import { environment } from 'src/environments/environment';
@@ -21,7 +23,12 @@ describe('HeroesListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeroesListComponent],
-      imports: [MatDialogModule, MatSnackBarModule, HttpClientTestingModule],
+      imports: [
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        HttpClientTestingModule,
+      ],
       providers: [HeroesService],
     }).compileComponents();
 
@@ -35,7 +42,7 @@ describe('HeroesListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should get all heroes onInit', (done) => {
+  it('should get all heroes onInit', () => {
     const mockHeroes: Array<Hero> = [
       {
         id: 'xyyasdasdQwe',
@@ -64,7 +71,6 @@ describe('HeroesListComponent', () => {
     spy.calls.mostRecent().returnValue.subscribe((heroes: Hero[]) => {
       fixture.detectChanges();
       expect(heroes).toEqual(mockHeroes);
-      done();
     });
 
     const request = httpTestingController.expectOne(
