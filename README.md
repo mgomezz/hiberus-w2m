@@ -7,7 +7,7 @@ Open cmd and run the following commands:
   2. docker-compose up
   3. Server will launch in http://localhost:3080 and UI in http://localhost:4200
 
-# Run Without Docker Compose
+# Run without Docker
 
 # API
 Open cmd and run the following commands:
