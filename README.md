@@ -9,14 +9,14 @@ Open cmd and run the following commands:
 
 # Run without Docker
 
-# API
+## API
 Open cmd and run the following commands:
   1. cd api
   2. npm install
   3. npm run dev
   4. the server will launch in http://localhost:3080
 
-# UI
+## UI
 Open cmd and run the following commands:
   1. cd ui
   2. npm install
