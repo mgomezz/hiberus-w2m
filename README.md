@@ -14,7 +14,7 @@ Open cmd and run the following commands:
   1. cd api
   2. npm install
   3. npm run dev
-  4. the server will launch in http://localhost:3080
+  4. Server will launch in http://localhost:3080
 
 ## UI
 Open cmd and run the following commands:
