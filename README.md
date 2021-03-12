@@ -1,13 +1,20 @@
 # Hiberus-W2M
-Repositorio que contiene prueba técnica de frontend para Hiberus- cliente W2M
+
+#Run with Docker
+1)cd hiberus-w2m
+2)docker-compose up
+3)Server will launch in http://localhost:3080 and UI in http://localhost:4200
+
+#Run Without Docker Compose
 
 # API
-Para correr la API:
-  1) Posicionarse en la carpeta "api" y ejecutar el comando npm install.
-  2) Ejecutar el comando npm run dev. Nos levantará el server localmente en el puerto 3080.
+1)cd api
+2)npm install
+3)npm run dev
+4)the server will launch in http://localhost:3080
 
 # UI
-Para correr la UI:
- 1) Posicionarse en la carpeta "ui" y ejecutar el comando npm install. 
- 2) Ejecutar el comando npm start. Nos levantará la web en http://localhost:4200.
+1)cd ui
+2)npm install
+3)npm start
 
