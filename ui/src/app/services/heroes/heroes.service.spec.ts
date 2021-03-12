@@ -7,7 +7,6 @@ import {
 import { HeroesService } from './heroes.service';
 import { Hero } from 'src/app/models/hero.model';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
 import { ApiResponse } from 'src/app/models/api-response.model';
 
 describe('HeroesService', () => {
