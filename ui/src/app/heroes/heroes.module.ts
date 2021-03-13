@@ -8,6 +8,7 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { EditHeroComponent } from './edit-hero/edit-hero.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
 import { DeleteConfirmDialogComponent } from './heroes-list/delete-confirm-dialog/delete-confirm-dialog.component';
+import { HeroesService } from './services/heroes/heroes.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DeleteConfirmDialogComponent } from './heroes-list/delete-confirm-dialo
     AddHeroComponent,
     DeleteConfirmDialogComponent,
   ],
+  providers: [HeroesService],
   imports: [CommonModule, HeroesRoutingModule, SharedModule],
 })
 export class HeroesModule {}

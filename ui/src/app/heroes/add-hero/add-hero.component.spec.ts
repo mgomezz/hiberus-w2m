@@ -8,7 +8,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ApiResponse } from 'src/app/shared/models/api-response.model';
 import { Hero } from 'src/app/shared/models/hero.model';
-import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { HeroesService } from 'src/app/heroes/services/heroes/heroes.service';
 import { environment } from 'src/environments/environment';
 
 import { AddHeroComponent } from './add-hero.component';

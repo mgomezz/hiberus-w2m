@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { HeroesService } from 'src/app/heroes/services/heroes/heroes.service';
 import { MessageNotificationService } from 'src/app/shared/services/message-notification/message-notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Hero } from 'src/app/shared/models/hero.model';

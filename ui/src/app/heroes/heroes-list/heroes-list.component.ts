@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { HeroesService } from 'src/app/heroes/services/heroes/heroes.service';
 import { MessageNotificationService } from 'src/app/shared/services/message-notification/message-notification.service';
 import { Hero } from 'src/app/shared/models/hero.model';
 import { ApiResponse } from 'src/app/shared/models/api-response.model';

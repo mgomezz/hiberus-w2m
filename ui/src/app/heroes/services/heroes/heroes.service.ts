@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ApiResponse } from '../../models/api-response.model';
-import { Hero } from '../../models/hero.model';
+import { ApiResponse } from '../../../shared/models/api-response.model';
+import { Hero } from '../../../shared/models/hero.model';
 
 @Injectable({
   providedIn: 'root',

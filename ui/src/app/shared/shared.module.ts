@@ -23,7 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MessageNotificationService } from './services/message-notification/message-notification.service';
 import { SpinnerService } from './services/spinner/spinner.service';
-import { HeroesService } from './services/heroes/heroes.service';
+import { HeroesService } from '../heroes/services/heroes/heroes.service';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 
 @NgModule({
@@ -53,7 +53,6 @@ import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
   providers: [
     MessageNotificationService,
     SpinnerService,
-    HeroesService,
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
   ],
   exports: [

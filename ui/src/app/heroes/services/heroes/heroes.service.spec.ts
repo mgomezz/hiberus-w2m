@@ -6,8 +6,8 @@ import {
 
 import { HeroesService } from './heroes.service';
 import { environment } from 'src/environments/environment';
-import { Hero } from '../../models/hero.model';
-import { ApiResponse } from '../../models/api-response.model';
+import { Hero } from '../../../shared/models/hero.model';
+import { ApiResponse } from '../../../shared/models/api-response.model';
 
 describe('HeroesService', () => {
   let httpTestingController: HttpTestingController;

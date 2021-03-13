@@ -8,7 +8,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs/internal/observable/of';
 import { Hero } from 'src/app/shared/models/hero.model';
-import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { HeroesService } from 'src/app/heroes/services/heroes/heroes.service';
 import { environment } from 'src/environments/environment';
 
 import { HeroesListComponent } from './heroes-list.component';

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { HeroesService } from 'src/app/heroes/services/heroes/heroes.service';
 import { MessageNotificationService } from 'src/app/shared/services/message-notification/message-notification.service';
 import { Hero } from 'src/app/shared/models/hero.model';
 import { ApiResponse } from 'src/app/shared/models/api-response.model';
