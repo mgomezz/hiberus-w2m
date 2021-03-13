@@ -4,49 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatInputModule } from '@angular/material/input';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
-import { NavComponent } from './components/nav/nav.component';
-import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
-
-import { MatIconModule } from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { SpinnerService } from './services/spinner/spinner.service';
-import { HeroesService } from './services/heroes/heroes.service';
-import { MessageNotificationService } from './services/message-notification/message-notification.service';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, SpinnerOverlayComponent],
+  declarations: [AppComponent],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    FlexLayoutModule,
-
-    //ANGULAR MATERIAL MODULES
-    MatIconModule,
-    MatSliderModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-  ],
-  providers: [
-    MessageNotificationService,
-    SpinnerService,
-    HeroesService,
-    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

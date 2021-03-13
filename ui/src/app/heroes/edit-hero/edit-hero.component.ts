@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Hero } from 'src/app/models/hero.model';
-import { HeroesService } from 'src/app/services/heroes/heroes.service';
-import { MessageNotificationService } from 'src/app/services/message-notification/message-notification.service';
-import { ApiResponse } from 'src/app/models/api-response.model';
+import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { MessageNotificationService } from 'src/app/shared/services/message-notification/message-notification.service';
+import { Hero } from 'src/app/shared/models/hero.model';
+import { ApiResponse } from 'src/app/shared/models/api-response.model';
+import { SpinnerService } from 'src/app/shared/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-edit-hero',
@@ -18,6 +19,7 @@ export class EditHeroComponent implements OnInit {
   heroForm: FormGroup = new FormGroup({});
 
   constructor(
+    public spinnerService: SpinnerService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,

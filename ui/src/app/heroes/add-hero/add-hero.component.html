@@ -1,3 +1,5 @@
+<app-spinner-overlay [overlay]="spinnerService.visibility.getValue()" *ngIf="spinnerService.visibility | async">
+</app-spinner-overlay>
 <div fxLayout="row" class="back-btn-container">
     <button mat-raised-button color="primary" matTooltip="Go Back" (click)="goBack()">
         <mat-icon>
@@ -11,7 +13,7 @@
             <mat-card>
                 <mat-card-header>
                     <mat-card-title>
-                        Edit hero
+                        Add new hero
                     </mat-card-title>
                 </mat-card-header>
 

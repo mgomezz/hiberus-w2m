@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Hero } from 'src/app/models/hero.model';
 import { Location } from '@angular/common';
-import { HeroesService } from 'src/app/services/heroes/heroes.service';
-import { ApiResponse } from 'src/app/models/api-response.model';
-import { MessageNotificationService } from 'src/app/services/message-notification/message-notification.service';
+import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { MessageNotificationService } from 'src/app/shared/services/message-notification/message-notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Hero } from 'src/app/shared/models/hero.model';
+import { ApiResponse } from 'src/app/shared/models/api-response.model';
+import { SpinnerService } from 'src/app/shared/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-add-hero',
@@ -17,6 +18,7 @@ export class AddHeroComponent implements OnInit {
   heroForm: FormGroup = new FormGroup({});
 
   constructor(
+    public spinnerService: SpinnerService,
     private formBuilder: FormBuilder,
     private router: Router,
     private location: Location,

@@ -1,15 +1,15 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { Hero } from 'src/app/models/hero.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ApiResponse } from 'src/app/models/api-response.model';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { HeroesService } from 'src/app/services/heroes/heroes.service';
-import { MessageNotificationService } from 'src/app/services/message-notification/message-notification.service';
+import { HeroesService } from 'src/app/shared/services/heroes/heroes.service';
+import { MessageNotificationService } from 'src/app/shared/services/message-notification/message-notification.service';
+import { Hero } from 'src/app/shared/models/hero.model';
+import { ApiResponse } from 'src/app/shared/models/api-response.model';
 
 @Component({
   selector: 'app-heroes-list',

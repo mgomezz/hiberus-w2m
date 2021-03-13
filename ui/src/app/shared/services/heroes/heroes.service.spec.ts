@@ -5,9 +5,9 @@ import {
 } from '@angular/common/http/testing';
 
 import { HeroesService } from './heroes.service';
-import { Hero } from 'src/app/models/hero.model';
 import { environment } from 'src/environments/environment';
-import { ApiResponse } from 'src/app/models/api-response.model';
+import { Hero } from '../../models/hero.model';
+import { ApiResponse } from '../../models/api-response.model';
 
 describe('HeroesService', () => {
   let httpTestingController: HttpTestingController;
