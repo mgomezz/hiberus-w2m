@@ -4,7 +4,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDirectivesModule } from './custom-directives/custom-directives.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AngularMaterialModule } from './angular-material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { SpinnerOverlayComponent } from './components/spinner-overlay/spinner-overlay.component';
 import { MatSliderModule } from '@angular/material/slider';
@@ -23,7 +22,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MessageNotificationService } from './services/message-notification/message-notification.service';
 import { SpinnerService } from './services/spinner/spinner.service';
-import { HeroesService } from '../heroes/services/heroes/heroes.service';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 
 @NgModule({
