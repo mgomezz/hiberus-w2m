@@ -23,30 +23,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MessageNotificationService } from './services/message-notification/message-notification.service';
 import { SpinnerService } from './services/spinner/spinner.service';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [NavComponent, SpinnerOverlayComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
+    AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     CustomDirectivesModule,
     HttpClientModule,
-    MatSliderModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatInputModule,
-    MatButtonModule,
   ],
   providers: [
     MessageNotificationService,
@@ -55,24 +43,11 @@ import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
   ],
   exports: [
     FlexLayoutModule,
+    AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     CustomDirectivesModule,
     HttpClientModule,
-    MatSliderModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatInputModule,
-    MatButtonModule,
     SpinnerOverlayComponent,
     NavComponent,
   ],
